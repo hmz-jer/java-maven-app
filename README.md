@@ -12,21 +12,19 @@ Pour utiliser ce projet, vous aurez besoin des éléments suivants installés lo
 
 ## Configuration du Projet
 
-    Cloner le Repositoire :
+Cloner le Repositoire :
+    
 
-    bash
-
-git clone  https://github.com/hmz-jer/java-maven-app.git
+    git clone  https://github.com/hmz-jer/java-maven-app.git
 
 ## Naviguer dans le Répertoire du Projet :
 
-bash
 
 cd java-maven-app.git
 
 ## Compiler le Projet avec Maven :
 
-bash
+
 
     mvn clean install
 
