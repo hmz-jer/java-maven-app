@@ -1,47 +1,26 @@
-# Projet Java pour Test de Pipeline Jenkins
-## À propos du Projet
+ import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
-Ce projet Java est conçu pour tester et démontrer les capacités des pipelines CI/CD avec Jenkins. Il vise à illustrer comment automatiser le processus de build, de test et de déploiement d'une application Java simple.
-Prérequis
+public class ConverterUnitTest {
 
-Pour utiliser ce projet, vous aurez besoin des éléments suivants installés localement :
+    @Test
+    public void testConvertJsonSchemaExamples() {
+        // Créer un exemple de schéma JSON avec plusieurs exemples
+        Map<String, Object> schemaWithExamples = new HashMap<>();
+        List<Object> examples = new ArrayList<>();
+        examples.add("example1");
+        examples.add("example2");
+        schemaWithExamples.put("examples", examples);
 
-    Java JDK (version 8 ou supérieure)
-    Maven (pour la gestion des dépendances et le build)
-    Jenkins (avec les plugins nécessaires pour les builds Java)
+        // Créer une instance de Converter avec le schéma JSON
+        Converter converter = new Converter();
+        
+        // Appeler la méthode de conversion
+        converter.convertJsonSchemaExamples(schemaWithExamples);
 
-## Configuration du Projet
-
-Cloner le Repositoire :
-    
-
-    git clone  https://github.com/hmz-jer/java-maven-app.git
-
-## Naviguer dans le Répertoire du Projet :
-
-
-cd java-maven-app.git
-
-## Compiler le Projet avec Maven :
-
-
-
-    mvn clean install
-
-## Intégration avec Jenkins
-
-Pour configurer ce projet avec Jenkins :
-
-    Créez un nouveau job 'Pipeline' dans Jenkins.
-    Configurez le chemin du SCM pour pointer vers ce répertoire.
-    Ajoutez le script de pipeline (Jenkinsfile) pour définir les étapes de build, de test et de déploiement.
-
-## Structure du Projet
-
-    src: Contient les fichiers sources du projet.
-    test: Contient les tests unitaires.
-    Jenkinsfile: Définit le pipeline Jenkins pour automatiser les étapes de build, de test et de déploiement.
-
-## Contribution
-
-Les contributions à ce projet sont les bienvenues. Veuillez suivre les bonnes pratiques de développement et de gestion de code source pour les contributions.
+        // Vérifier si la conversion a été effectuée correctement
+        assertFalse(schemaWithExamples.containsKey("examples")); // Vérifie si la clé "examples" a été supprimée
+        assertTrue(schemaWithExamples.containsKey("example")); // Vérifie si la clé "example" a été ajoutée
+        assertEquals("example1", schemaWithExamples.get("example")); // Vérifie si la valeur de "example" est correcte
+    }
+}
